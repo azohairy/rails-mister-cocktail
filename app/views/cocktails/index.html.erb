@@ -1,11 +1,27 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80); background-size: cover;">
   <div class="container">
-    <h2>Central Perk Cocktails</h2>
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, iste.</p>
+    <h1><strong>309 Bar</strong></h1>
+    <p>Just don't talk about Mo's mother...</p>
+    <a><%= link_to "Add a Cocktail", new_cocktail_path, class: "btn btn-flat" %></a>
   </div>
 </div>
 <div class="container">
-  <% @cocktails.each do |c| %>
-    <p><%= c.name %></p>
-  <% end %>
+  <h3 class="text-center m-3">
+  All cocktails list
+  <small class="text-muted"> - Free on fridays</small>
+  </h3>
+  <div class="row">
+    <% @cocktails.each do |c| %>
+    <div class="col-sm mt-3">
+      <div class="card" style="width: 20rem; border: solid 1px #000; border-radius: 5px">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= c.name %></h5>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          <%= link_to "Show Details", cocktail_path(c), class: "btn btn-flat" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
