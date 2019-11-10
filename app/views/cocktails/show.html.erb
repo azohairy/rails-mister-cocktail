@@ -25,7 +25,8 @@
       <%= link_to "Back to list", cocktails_path, class: "btn btn-light"%>
     </div>
     <div class="col">
-      <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="rounded float-right img-thumbnail" alt="Card image cap">
+      <!-- <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="rounded float-right img-thumbnail" alt="Card image cap"> -->
+      <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill, class: 'rounded float-right img-thumbnail' %>
     </div>
   </div>
 </div>

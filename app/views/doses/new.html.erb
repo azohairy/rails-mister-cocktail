@@ -1,6 +1,8 @@
-<h1>Doses#new</h1>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <h3 class="mt-3">Add Dose</h3>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+</div>
