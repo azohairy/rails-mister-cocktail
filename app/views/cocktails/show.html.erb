@@ -1,14 +1,28 @@
 <div class="container">
-  <h3>Cocktail Details</h3>
-  <div class="row">
+  <h4 class="pt-3">Cocktail Details</h4>
+  <div class="row mt-3">
     <div class="col">
-      <p>Cocktail Name: <%= @cocktail.name %></p><br>
+      <ul class="list-group mb-3">
+      <li class="list-group-item d-flex justify-content-between align-items-center"><p class="mb-0">Cocktail Name: <strong><%= @cocktail.name %></strong></p><span class="badge badge-primary badge-pill"><%= @doses.count %></span></li>
       <% @doses.each do |dose| %>
       <!-- Ingredients list -->
-      <%= dose.description %> - <%= dose.ingredient.name %><br>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col">
+          <span>Ingredient: <%= dose.ingredient.name %></span><br>
+          <span class="small text-secondary">Description: <%= dose.description %></span>
+          </div>
+          <div class="col-1">
+            <%= link_to "", cocktail_dose_path(cocktail_id: @cocktail.id, id: dose.id), class: "fas fa-trash", method: :delete%>
+          </div>
+        </div>
+      </li>
+
       <% end %>
+      </ul>
       <!-- Add in ingredient -->
-      <%= link_to "Add an Ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-flat"%>
+      <%= link_to "Add an Ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-dark"%>
+      <%= link_to "Back to list", cocktails_path, class: "btn btn-light"%>
     </div>
     <div class="col">
       <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="rounded float-right img-thumbnail" alt="Card image cap">
